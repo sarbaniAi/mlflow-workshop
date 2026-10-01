@@ -1,0 +1,35 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-09-25T11:53:00Z"},
+  "title": "MLflow & the ML Lifecycle — CHRIST University Workshop",
+  "order": [
+    "cover", "agenda", "problem", "lifecycle", "what-is-mlflow", "components", "architecture",
+    "lab1-title", "tracking-concepts", "tracking-api", "tracking-ui",
+    "lab2-title", "models-concept", "models-signature",
+    "lab3-title", "registry-concept", "registry-workflow",
+    "evaluation",
+    "projects-concept",
+    "e2e-workflow",
+    "best-practices", "skills-path", "enterprise",
+    "capstone-title", "capstone-brief",
+    "wrapup", "resources", "thankyou"
+  ],
+  "sections": {
+    "intro": {"description": "Welcome, agenda and the reproducibility problem", "start": "cover"},
+    "overview": {"description": "What MLflow is and how its components fit together", "start": "what-is-mlflow"},
+    "tracking": {"description": "Hands-on Lab 1: experiment tracking with MLflow Tracking", "start": "lab1-title"},
+    "models": {"description": "Hands-on Lab 2: packaging and signing models with MLflow Models", "start": "lab2-title"},
+    "registry": {"description": "Hands-on Lab 3: versioning and promoting models with the Model Registry", "start": "lab3-title"},
+    "evaluation": {"description": "Evaluating models with mlflow.evaluate()", "start": "evaluation"},
+    "projects": {"description": "MLflow Projects and deployment concepts", "start": "projects-concept"},
+    "workflow": {"description": "Putting it together: a simple end-to-end MLflow workflow", "start": "e2e-workflow"},
+    "industry": {"description": "Industry use cases, best practices and the skills to build for MLOps roles", "start": "best-practices"},
+    "capstone": {"description": "Mini capstone challenge", "start": "capstone-title"},
+    "wrap": {"description": "Takeaways, resources and Q&A", "start": "wrapup"}
+  },
+  "faces": {
+    "dm-sans": {"family": "DM Sans", "href": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..800&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"},
+    "ibm-plex-sans": {"family": "IBM Plex Sans", "href": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..800&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"},
+    "jetbrains-mono": {"family": "JetBrains Mono", "href": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..800&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"}
+  }
+}

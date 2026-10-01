@@ -1,0 +1,41 @@
+<section id="tracking-concepts" style="background:#FAFAF8; color:#1A1F2B; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+  <h2 style="font-family:'DM Sans', Arial, sans-serif; font-size:56px; font-weight:700; color:#1A1F2B">The vocabulary of Tracking</h2>
+  <table style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; color:#1A1F2B">
+    <tr>
+      <th style="width:22%; text-align:left; color:#6A7179; font-weight:600; padding:14px 16px">Term</th>
+      <th style="width:34%; text-align:left; color:#6A7179; font-weight:600; padding:14px 16px">What it is</th>
+      <th style="width:44%; text-align:left; color:#6A7179; font-weight:600; padding:14px 16px">Example</th>
+    </tr>
+    <tr style="background:#FFFFFF">
+      <td style="padding:16px"><b>Experiment</b></td>
+      <td style="padding:16px">A named collection of related runs</td>
+      <td style="padding:16px; font-family:'JetBrains Mono', monospace; font-size:24px">"churn-model"</td>
+    </tr>
+    <tr>
+      <td style="padding:16px"><b>Run</b></td>
+      <td style="padding:16px">One execution — its params, metrics, code and artifacts</td>
+      <td style="padding:16px">Training XGBoost, attempt #7</td>
+    </tr>
+    <tr style="background:#FFFFFF">
+      <td style="padding:16px"><b>Param</b></td>
+      <td style="padding:16px">A logged input, fixed for the run</td>
+      <td style="padding:16px; font-family:'JetBrains Mono', monospace; font-size:24px">n_estimators = 200</td>
+    </tr>
+    <tr>
+      <td style="padding:16px"><b>Metric</b></td>
+      <td style="padding:16px">A logged output, can change over steps</td>
+      <td style="padding:16px; font-family:'JetBrains Mono', monospace; font-size:24px">accuracy = 0.94</td>
+    </tr>
+    <tr style="background:#FFFFFF">
+      <td style="padding:16px"><b>Artifact</b></td>
+      <td style="padding:16px">A file saved alongside the run</td>
+      <td style="padding:16px">model.pkl, confusion_matrix.png</td>
+    </tr>
+    <tr>
+      <td style="padding:16px"><b>Tag</b></td>
+      <td style="padding:16px">Free-form metadata for search and filtering</td>
+      <td style="padding:16px; font-family:'JetBrains Mono', monospace; font-size:24px">team = "nlp-squad"</td>
+    </tr>
+  </table>
+  <p style="position:absolute; left:128px; bottom:64px; font-size:24px; color:#6A7179">MLflow Seminar · CHRIST University</p>
+</section>

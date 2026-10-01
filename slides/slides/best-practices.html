@@ -1,0 +1,33 @@
+<section id="best-practices" style="background:#FAFAF8; color:#1A1F2B; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-size:24px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#E8590C">From real MLOps teams</p>
+    <h2 style="font-family:'DM Sans', Arial, sans-serif; font-size:56px; font-weight:700; color:#1A1F2B">Best practices that save you later</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr 1fr; gap:20px; flex:1">
+    <div style="background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:26px 32px; display:flex; align-items:center; gap:20px">
+      <x-icon name="CheckCircle" style="color:#1B6FC9; width:30px; height:30px"></x-icon>
+      <p style="font-size:25px; color:#1A1F2B; line-height:1.35">Log a signature and input example on <b>every</b> model — not just the ones you plan to serve</p>
+    </div>
+    <div style="background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:26px 32px; display:flex; align-items:center; gap:20px">
+      <x-icon name="CheckCircle" style="color:#1B6FC9; width:30px; height:30px"></x-icon>
+      <p style="font-size:25px; color:#1A1F2B; line-height:1.35">Serve by <b>alias</b>, never a hardcoded version number — promotion becomes a metadata change, not a redeploy</p>
+    </div>
+    <div style="background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:26px 32px; display:flex; align-items:center; gap:20px">
+      <x-icon name="CheckCircle" style="color:#1B6FC9; width:30px; height:30px"></x-icon>
+      <p style="font-size:25px; color:#1A1F2B; line-height:1.35">Tag runs like commit messages — owner, dataset version, git commit — future-you will search by tag</p>
+    </div>
+    <div style="background:#FFF6F0; border:1px solid #F3D9C4; border-radius:16px; padding:26px 32px; display:flex; align-items:center; gap:20px">
+      <x-icon name="Warning" style="color:#E8590C; width:30px; height:30px"></x-icon>
+      <p style="font-size:25px; color:#1A1F2B; line-height:1.35">Don't log raw training data as an artifact — log a small sample or a versioned pointer instead</p>
+    </div>
+    <div style="background:#FFF6F0; border:1px solid #F3D9C4; border-radius:16px; padding:26px 32px; display:flex; align-items:center; gap:20px">
+      <x-icon name="Warning" style="color:#E8590C; width:30px; height:30px"></x-icon>
+      <p style="font-size:25px; color:#1A1F2B; line-height:1.35">Pin dependencies explicitly — an unpinned <span style="font-family:'JetBrains Mono', monospace; font-size:22px">conda.yaml</span> breaks silently, months later</p>
+    </div>
+    <div style="background:#FFF6F0; border:1px solid #F3D9C4; border-radius:16px; padding:26px 32px; display:flex; align-items:center; gap:20px">
+      <x-icon name="Warning" style="color:#E8590C; width:30px; height:30px"></x-icon>
+      <p style="font-size:25px; color:#1A1F2B; line-height:1.35">Wire logging into CI/CD — tracking only the runs you remember to log manually isn't tracking</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; font-size:24px; color:#6A7179">MLflow Seminar · CHRIST University</p>
+</section>

@@ -1,0 +1,35 @@
+<section id="tracking-api" style="background:#FAFAF8; color:#1A1F2B; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:36px">
+  <h2 style="font-family:'DM Sans', Arial, sans-serif; font-size:56px; font-weight:700; color:#1A1F2B">Two ways to log a run</h2>
+  <div style="display:flex; gap:32px; flex:1">
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px">
+      <h3 style="font-size:28px; font-weight:600; color:#1B6FC9">Manual logging</h3>
+      <div style="background:#12151C; border-radius:16px; padding:32px; display:flex; flex-direction:column; flex:1">
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#8AB4F8">import mlflow</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">&#160;</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">mlflow.set_experiment(<span style="color:#D8A657">"churn-model"</span>)</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">&#160;</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">with mlflow.start_run():</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">mlflow.log_param(<span style="color:#D8A657">"max_depth"</span>, 6)</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">model.fit(X_train, y_train)</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">acc = model.score(X_test, y_test)</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">mlflow.log_metric(<span style="color:#D8A657">"accuracy"</span>, acc)</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">mlflow.log_artifact(<span style="color:#D8A657">"cm.png"</span>)</p>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px">
+      <h3 style="font-size:28px; font-weight:600; color:#E8590C">Autologging</h3>
+      <div style="background:#12151C; border-radius:16px; padding:32px; display:flex; flex-direction:column; flex:1">
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#8AB4F8">import mlflow</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">&#160;</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">mlflow.sklearn.autolog()</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">&#160;</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">with mlflow.start_run():</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">model.fit(X_train, y_train)</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#7A8290; padding:0 0 0 48px"># params, metrics and the</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#7A8290; padding:0 0 0 48px"># model itself are captured</p>
+        <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#7A8290; padding:0 0 0 48px"># automatically</p>
+      </div>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; font-size:24px; color:#6A7179">MLflow Seminar · CHRIST University</p>
+</section>

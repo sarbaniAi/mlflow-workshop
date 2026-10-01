@@ -1,0 +1,29 @@
+<section id="projects-concept" style="background:#FAFAF8; color:#1A1F2B; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:36px">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-size:24px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#1B6FC9">MLflow Projects &amp; deployment</p>
+    <h2 style="font-family:'DM Sans', Arial, sans-serif; font-size:56px; font-weight:700; color:#1A1F2B">Packaging code, not just the model</h2>
+  </div>
+  <div style="display:flex; gap:32px; flex:1">
+    <div style="flex:1; background:#12151C; border-radius:16px; padding:32px; display:flex; flex-direction:column">
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#7A8290">MLproject</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2">&#160;</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2">name: wine-classifier</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2">conda_env: conda.yaml</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2">&#160;</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2">entry_points:</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2; padding:0 0 0 40px">main:</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2; padding:0 0 0 80px">parameters:</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2; padding:0 0 0 120px">n_estimators: {type: int}</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#F5F5F2; padding:0 0 0 80px">command: <span style="color:#D8A657">"python train.py {n_estimators}"</span></p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">&#160;</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#8AB4F8"># run it, anywhere, reproducibly</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">$ mlflow run . -P n_estimators=300</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:20px; justify-content:center">
+      <div style="display:flex; gap:16px; align-items:flex-start"><x-icon name="Book" style="color:#1B6FC9; width:30px; height:30px"></x-icon><p style="font-size:26px; color:#1A1F2B; line-height:1.4">An <b>MLproject</b> file captures the entry point, parameters and environment — so "how do I even run this?" has one answer, not five READMEs</p></div>
+      <div style="display:flex; gap:16px; align-items:flex-start"><x-icon name="Lock" style="color:#1B6FC9; width:30px; height:30px"></x-icon><p style="font-size:26px; color:#1A1F2B; line-height:1.4">The environment (conda.yaml or requirements.txt) travels with the code — the same run works on your laptop, a teammate's, or a CI runner</p></div>
+      <div style="display:flex; gap:16px; align-items:flex-start"><x-icon name="Cloud" style="color:#E8590C; width:30px; height:30px"></x-icon><p style="font-size:26px; color:#1A1F2B; line-height:1.4"><b>Deployment, the simplest version:</b> <span style="font-family:'JetBrains Mono', monospace; font-size:22px; color:#E8590C">mlflow models serve -m models:/name@champion</span> turns a registered model into a local REST endpoint in one line</p></div>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; font-size:24px; color:#6A7179">MLflow Seminar · CHRIST University</p>
+</section>

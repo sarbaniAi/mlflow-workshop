@@ -1,0 +1,29 @@
+<section id="architecture" style="background:#FAFAF8; color:#1A1F2B; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:40px">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-size:24px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#1B6FC9">Under the hood</p>
+    <h2 style="font-family:'DM Sans', Arial, sans-serif; font-size:56px; font-weight:700; color:#1A1F2B">How the pieces connect</h2>
+  </div>
+  <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px">
+    <div style="width:640px; background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:24px; text-align:center">
+      <p style="font-size:26px; font-weight:600; color:#1A1F2B">Your training script</p>
+      <p style="font-size:24px; color:#4A5568">mlflow.log_param / log_metric / log_artifact</p>
+    </div>
+    <x-shape kind="arrow-down" style="background:#8A8F98; width:28px; height:44px"></x-shape>
+    <div style="width:640px; background:#12151C; border-radius:16px; padding:24px; text-align:center">
+      <p style="font-size:26px; font-weight:600; color:#F5F5F2">MLflow Tracking Server</p>
+      <p style="font-size:24px; color:#A8B0BD">local by default, or a shared remote server</p>
+    </div>
+    <x-shape kind="arrow-down" style="background:#8A8F98; width:28px; height:44px"></x-shape>
+    <div style="display:flex; gap:24px">
+      <div style="width:400px; background:#EAF2FB; border-radius:16px; padding:24px; text-align:center">
+        <p style="font-size:26px; font-weight:600; color:#1A1F2B">Backend Store</p>
+        <p style="font-size:24px; color:#4A5568">params, metrics, tags — SQL or local files</p>
+      </div>
+      <div style="width:400px; background:#FFF6F0; border-radius:16px; padding:24px; text-align:center">
+        <p style="font-size:26px; font-weight:600; color:#1A1F2B">Artifact Store</p>
+        <p style="font-size:24px; color:#4A5568">models, plots, files — local disk, S3, ADLS</p>
+      </div>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; font-size:24px; color:#6A7179">MLflow Seminar · CHRIST University</p>
+</section>

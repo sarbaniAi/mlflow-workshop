@@ -1,0 +1,39 @@
+<section id="e2e-workflow" style="background:#FAFAF8; color:#1A1F2B; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:48px">
+  <div style="display:flex; flex-direction:column; gap:16px">
+    <p style="font-size:24px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#E8590C">Putting it together</p>
+    <h2 style="font-family:'DM Sans', Arial, sans-serif; font-size:56px; font-weight:700; color:#1A1F2B">One simple end-to-end workflow</h2>
+  </div>
+  <div style="display:flex; align-items:stretch; gap:14px; flex:1">
+    <div style="flex:1; background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:10px; justify-content:center">
+      <p style="font-size:26px; font-weight:600; color:#1A1F2B">Track</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:20px; color:#1B6FC9">start_run()<br>log_metric()</p>
+    </div>
+    <x-shape kind="arrow-right" style="background:#8A8F98; width:28px; height:16px"></x-shape>
+    <div style="flex:1; background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:10px; justify-content:center">
+      <p style="font-size:26px; font-weight:600; color:#1A1F2B">Package</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:20px; color:#1B6FC9">log_model()<br>signature=...</p>
+    </div>
+    <x-shape kind="arrow-right" style="background:#8A8F98; width:28px; height:16px"></x-shape>
+    <div style="flex:1; background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:10px; justify-content:center">
+      <p style="font-size:26px; font-weight:600; color:#1A1F2B">Register</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:20px; color:#1B6FC9">register()<br>@champion</p>
+    </div>
+    <x-shape kind="arrow-right" style="background:#8A8F98; width:28px; height:16px"></x-shape>
+    <div style="flex:1; background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:10px; justify-content:center">
+      <p style="font-size:26px; font-weight:600; color:#1A1F2B">Evaluate</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:20px; color:#1B6FC9">mlflow<br>.evaluate()</p>
+    </div>
+    <x-shape kind="arrow-right" style="background:#8A8F98; width:28px; height:16px"></x-shape>
+    <div style="flex:1; background:#FFFFFF; border:1px solid #E3E1D9; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:10px; justify-content:center">
+      <p style="font-size:26px; font-weight:600; color:#1A1F2B">Package code</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:20px; color:#1B6FC9">MLproject<br>mlflow run</p>
+    </div>
+    <x-shape kind="arrow-right" style="background:#8A8F98; width:28px; height:16px"></x-shape>
+    <div style="flex:1; background:#12151C; border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:10px; justify-content:center">
+      <p style="font-size:26px; font-weight:600; color:#F5F5F2">Deploy</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:20px; color:#8AB4F8">models serve<br>/ Model Serving</p>
+    </div>
+  </div>
+  <p style="font-size:26px; color:#4A5568; line-height:1.4">Every arrow above is something you already ran today, in Labs 1–3. The capstone next asks you to chain all six steps yourself, on a fresh dataset.</p>
+  <p style="position:absolute; left:128px; bottom:64px; font-size:24px; color:#6A7179">MLflow Seminar · CHRIST University</p>
+</section>

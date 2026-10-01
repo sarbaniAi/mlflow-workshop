@@ -1,0 +1,24 @@
+<section id="models-signature" style="background:#FAFAF8; color:#1A1F2B; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:36px">
+  <h2 style="font-family:'DM Sans', Arial, sans-serif; font-size:56px; font-weight:700; color:#1A1F2B">Model signatures — a contract with reality</h2>
+  <div style="display:flex; gap:32px; flex:1">
+    <div style="flex:1.1; background:#12151C; border-radius:16px; padding:32px; display:flex; flex-direction:column">
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">from mlflow.models import infer_signature</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">&#160;</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">signature = infer_signature(</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">X_train, model.predict(X_train)</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">)</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">&#160;</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">mlflow.sklearn.log_model(</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">model, <span style="color:#D8A657">"model"</span>,</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">signature=signature,</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2; padding:0 0 0 48px">input_example=X_train[:5]</p>
+      <p style="font-family:'JetBrains Mono', monospace; font-size:24px; color:#F5F5F2">)</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:22px; justify-content:center">
+      <div style="display:flex; gap:16px; align-items:flex-start"><x-icon name="CheckCircle" style="color:#1B6FC9; width:30px; height:30px"></x-icon><p style="font-size:26px; color:#1A1F2B; line-height:1.4">Validates incoming requests against expected input types and shape</p></div>
+      <div style="display:flex; gap:16px; align-items:flex-start"><x-icon name="CheckCircle" style="color:#1B6FC9; width:30px; height:30px"></x-icon><p style="font-size:26px; color:#1A1F2B; line-height:1.4">Auto-generates the REST API schema when the model is served</p></div>
+      <div style="display:flex; gap:16px; align-items:flex-start"><x-icon name="CheckCircle" style="color:#1B6FC9; width:30px; height:30px"></x-icon><p style="font-size:26px; color:#1A1F2B; line-height:1.4">Catches schema drift early — before it becomes a production incident</p></div>
+    </div>
+  </div>
+  <p style="position:absolute; left:128px; bottom:64px; font-size:24px; color:#6A7179">MLflow Seminar · CHRIST University</p>
+</section>
