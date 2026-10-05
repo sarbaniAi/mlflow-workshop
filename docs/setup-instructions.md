@@ -85,6 +85,14 @@ If it prints **"Setup OK"** with no errors, you're ready — delete this test ce
 
 **Corporate/college Wi-Fi blocks `pip install`** — try a personal hotspot, or switch to Colab, which only needs a browser.
 
+**`pip install` fails outright with `Connection refused` (not just slow)** — this usually means a VPN or proxy on your machine is redirecting pip's traffic to an address that isn't listening, even though your internet otherwise works. If you have `uv` installed (check with `uv --version`; install with `pip install uv` if not), use it instead, with your virtual environment still active:
+
+```bash
+uv pip install mlflow scikit-learn pandas matplotlib jupyter
+```
+
+`uv` installs into the same active virtual environment and often works around proxy issues that block plain `pip`.
+
 **"Module not found" errors after activating the virtual environment** — make sure you see `(mlflow-workshop-env)` at the start of your terminal prompt before running `pip install`. If not, re-run the activate command from step 2.
 
 **You already have an older MLflow installed and something looks different from the notebook** — upgrade it:
