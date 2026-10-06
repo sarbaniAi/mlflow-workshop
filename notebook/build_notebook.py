@@ -25,7 +25,7 @@ This notebook is the hands-on companion to the seminar. It has seven parts:
 | 2. Lab 2 — Models | Package a model with a signature | 30 min |
 | 3. Lab 3 — Registry | Register and promote a model version | 35 min |
 | 4. Evaluation | Score a model with `mlflow.evaluate()` | 15 min |
-| 5. Projects & Deployment | Package code, not just the model | 15 min |
+| 5. Projects & Deployment | Package code, not just the model | 20 min |
 | 6. Industry practices | Best practices and MLOps skills to build | reading |
 | 7. Mini Capstone | Do all of the above, on your own, on a new dataset | 40 min |
 
@@ -373,49 +373,122 @@ md("""\
 
 Everything so far has packaged the **model**. MLflow Projects packages the **code** — so "how do I even run this?" has one answer, not five READMEs.
 
-An `MLproject` file (plain YAML, no code) declares the entry point, its parameters, and the environment:
+An `MLproject` file (plain YAML, no code) declares the entry point and its parameters:
 
 ```yaml
-name: wine-classifier
-
-conda_env: conda.yaml
+name: wine-mlproject-demo
 
 entry_points:
   main:
     parameters:
-      n_estimators: {type: int, default: 200}
-      max_depth: {type: int, default: 6}
+      n_estimators: {type: int, default: 150}
+      max_depth: {type: int, default: 5}
     command: "python train.py {n_estimators} {max_depth}"
 ```
 
-With that file next to a `train.py` script, anyone — a teammate, a CI runner, a scheduled job — reproduces your exact run with:
+With that file next to a `train.py` script, anyone — a teammate, a CI runner, a scheduled job — reproduces your exact run with one command:
 
 ```bash
 mlflow run . -P n_estimators=300
 ```
 
-No "activate my conda env first," no "did you install the right pandas version" — the environment travels with the project.
+No "activate my conda env first," no "did you install the right pandas version" — the project declares what it needs, and `mlflow run` handles the rest. Let's build one and actually run it.
 """)
 
 code("""\
-# We won't run a full MLproject in this shared notebook (it spins up a
-# subprocess and its own environment, which behaves inconsistently across
-# personal machines and Colab). Instead, here's the MLproject file we'd use
-# for the model we just built in Lab 2 — read it, don't run it.
+import os
 
-mlproject_yaml = '''
-name: wine-classifier
+os.makedirs("wine_project", exist_ok=True)
+""")
 
-conda_env: conda.yaml
+code("""\
+%%writefile wine_project/train.py
+import os
+import sys
+
+import mlflow
+import mlflow.sklearn
+from sklearn.datasets import load_wine
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+
+# mlflow run passes parameters as positional command-line arguments, in the
+# order declared in the MLproject file.
+n_estimators = int(sys.argv[1]) if len(sys.argv) > 1 else 150
+max_depth = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+
+# MLFLOW_TRACKING_URI is set as an environment variable by the notebook cell
+# that launches this script (not hardcoded here), so this run lands in the
+# SAME mlflow.db as every lab before it — not a fresh one inside this folder.
+mlflow.set_tracking_uri(os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///mlflow.db"))
+
+with mlflow.start_run():
+    mlflow.log_param("n_estimators", n_estimators)
+    mlflow.log_param("max_depth", max_depth)
+
+    data = load_wine()
+    X_train, X_test, y_train, y_test = train_test_split(
+        data.data, data.target, test_size=0.2, random_state=42
+    )
+
+    model = RandomForestClassifier(
+        n_estimators=n_estimators, max_depth=max_depth, random_state=42
+    )
+    model.fit(X_train, y_train)
+
+    acc = accuracy_score(y_test, model.predict(X_test))
+    mlflow.log_metric("accuracy", acc)
+
+    signature = mlflow.models.infer_signature(X_train, model.predict(X_train))
+    mlflow.sklearn.log_model(
+        sk_model=model,
+        name="model",
+        signature=signature,
+        input_example=X_train[:5],
+        serialization_format="pickle",
+    )
+
+    print(f"Logged run: accuracy={acc:.4f}  n_estimators={n_estimators}  max_depth={max_depth}")
+""")
+
+code("""\
+%%writefile wine_project/MLproject
+name: wine-mlproject-demo
 
 entry_points:
   main:
     parameters:
-      n_estimators: {type: int, default: 200}
-      max_depth: {type: int, default: 6}
+      n_estimators: {type: int, default: 150}
+      max_depth: {type: int, default: 5}
     command: "python train.py {n_estimators} {max_depth}"
-'''
-print(mlproject_yaml)
+""")
+
+md("""\
+Now run it. `--env-manager local` tells MLflow to use *this* Python environment instead of building a fresh conda/virtualenv for the project — the right call here, since Section 0 already installed everything the project needs. We pass `MLFLOW_TRACKING_URI` as an environment variable (rather than hardcoding it inside `train.py`) so the project logs into the exact same `mlflow.db` as Labs 1–3, not a new one scoped to this folder.
+""")
+
+code("""\
+import os
+
+# Earlier cells called mlflow.set_experiment(), which leaves MLFLOW_EXPERIMENT_ID
+# set in THIS process's environment. mlflow run's subprocess would inherit it and
+# then refuse to also accept --experiment-name below, so clear it first.
+os.environ.pop("MLFLOW_EXPERIMENT_ID", None)
+os.environ["MLFLOW_TRACKING_URI"] = f"sqlite:///{os.path.abspath('mlflow.db')}"
+
+!mlflow run wine_project -P n_estimators=150 -P max_depth=5 --env-manager local --experiment-name wine-mlproject-demo
+""")
+
+code("""\
+# Prove it: query the run `mlflow run` just created, from the exact same
+# tracking store every other lab in this notebook uses.
+runs = mlflow.search_runs(experiment_names=["wine-mlproject-demo"])
+runs[["run_id", "params.n_estimators", "params.max_depth", "metrics.accuracy"]]
+""")
+
+md("""\
+That's reproducibility end to end: anyone with nothing but the `wine_project/` folder and a Python environment runs the exact same command and gets a logged, comparable result — no "works on my machine."
 """)
 
 md("""\
