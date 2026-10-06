@@ -12,6 +12,7 @@ Agenda: intro to MLflow → experiment tracking → model logging/versioning →
 | `notebook/build_notebook.py` | The script that generates the notebook (`nbformat`-based). Edit this and re-run it to change the notebook rather than hand-editing the `.ipynb`. |
 | `docs/setup-instructions.md` | Student-facing setup instructions (local Jupyter or Colab), sent out before the session. |
 | `slides/` | Source for the slide deck (28 slides) — `deck.json` + one HTML file per slide. |
+| [`genai-bonus/`](genai-bonus/) | **Optional bonus module:** MLflow for GenAI/LLMOps — tracing, agent evaluation, and LLM-judge scorers, built around a real OpenAI-powered Streamlit chatbot. Not part of the core half-day agenda. See [`genai-bonus/README.md`](genai-bonus/README.md). |
 
 ## Live versions
 

@@ -1,0 +1,14 @@
+# MLflow local tracking artifacts (generated when the notebooks/app run)
+mlflow.db
+genai_mlflow.db
+mlruns/
+mlartifacts/
+
+# Never commit secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
