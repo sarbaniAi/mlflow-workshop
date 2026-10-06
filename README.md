@@ -10,6 +10,8 @@ Agenda: intro to MLflow → experiment tracking → model logging/versioning →
 |---|---|
 | [`notebook/MLflow_Workshop_CHRIST_University.ipynb`](notebook/MLflow_Workshop_CHRIST_University.ipynb) | The hands-on notebook (Tracking, Models, Registry, Evaluation, Projects, and a mini capstone). Works locally or in Google Colab with open-source MLflow — no server, no account. Tested end-to-end against MLflow 3.16.1 (`jupyter nbconvert --execute`, 0 errors). |
 | `notebook/build_notebook.py` | The script that generates the notebook (`nbformat`-based). Edit this and re-run it to change the notebook rather than hand-editing the `.ipynb`. |
+| [`notebook/MLflow_Workshop_CHRIST_University_SOLUTIONS.ipynb`](notebook/MLflow_Workshop_CHRIST_University_SOLUTIONS.ipynb) | **Instructor-only answer key.** Identical to the student notebook except Section 7's four Mini Capstone `# TODO` cells are filled in with a complete, tested solution on the breast-cancer dataset. Don't hand this to students before the capstone. |
+| `notebook/build_solution_notebook.py` | Generates the solutions notebook by reusing `build_notebook.py`'s Sections 0-6 verbatim and filling in Section 7. |
 | `docs/setup-instructions.md` | Student-facing setup instructions (local Jupyter or Colab), sent out before the session. |
 | `slides/` | Source for the slide deck (28 slides) — `deck.json` + one HTML file per slide. |
 | [`genai-bonus/`](genai-bonus/) | **Optional bonus module:** MLflow for GenAI/LLMOps — tracing, agent evaluation, and LLM-judge scorers, built around a real OpenAI-powered Streamlit chatbot. Not part of the core half-day agenda. See [`genai-bonus/README.md`](genai-bonus/README.md). |
