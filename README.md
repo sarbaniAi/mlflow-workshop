@@ -15,6 +15,7 @@ Agenda: intro to MLflow → experiment tracking → model logging/versioning →
 | `docs/setup-instructions.md` | Student-facing setup instructions (local Jupyter or Colab), sent out before the session. |
 | `slides/` | Source for the slide deck (28 slides) — `deck.json` + one HTML file per slide. |
 | [`genai-bonus/`](genai-bonus/) | **Optional bonus module:** MLflow for GenAI/LLMOps — tracing, agent evaluation, and LLM-judge scorers, built around a real OpenAI-powered Streamlit chatbot. Not part of the core half-day agenda. See [`genai-bonus/README.md`](genai-bonus/README.md). |
+| [`deep-learning-checkpoints/`](deep-learning-checkpoints/) | **Optional bonus module:** MLflow for deep learning — per-epoch checkpoint logging with `MlflowModelCheckpointCallback`, reloading specific checkpoints, registering several as versions of one model, and promoting the best to `@champion`. CPU-only (TensorFlow/Keras), no GPU or account needed. See [`deep-learning-checkpoints/README.md`](deep-learning-checkpoints/README.md). |
 
 ## Live versions
 
